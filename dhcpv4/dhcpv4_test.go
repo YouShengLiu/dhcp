@@ -7,7 +7,7 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/insomniacslk/dhcp/iana"
+	"github.com/YouShengLiu/dhcp/iana"
 	"github.com/stretchr/testify/require"
 	"github.com/u-root/uio/uio"
 )
@@ -392,7 +392,8 @@ func TestIsGenericOptionRequested(t *testing.T) {
 }
 
 // TODO
-//      test Summary() and String()
+//
+//	test Summary() and String()
 func TestSummary(t *testing.T) {
 	packet, err := New(WithMessageType(MessageTypeInform))
 	packet.TransactionID = [4]byte{1, 1, 1, 1}

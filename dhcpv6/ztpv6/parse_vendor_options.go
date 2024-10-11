@@ -5,8 +5,8 @@ import (
 	"strconv"
 	"strings"
 
-	"github.com/insomniacslk/dhcp/dhcpv6"
-	"github.com/insomniacslk/dhcp/iana"
+	"github.com/YouShengLiu/dhcp/dhcpv6"
+	"github.com/YouShengLiu/dhcp/iana"
 )
 
 var (
@@ -77,7 +77,7 @@ func ParseVendorData(packet dhcpv6.DHCPv6) (*VendorData, error) {
 			vd.Model = p[1]
 			vd.Serial = p[2]
 			return &vd, nil
-		
+
 		// NVOS##MMM1234##MM1234X56ABC
 		case strings.HasPrefix(d, "NVOS##"):
 			p := strings.Split(d, "##")
