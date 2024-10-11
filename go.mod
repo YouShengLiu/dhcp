@@ -3,6 +3,7 @@ module github.com/insomniacslk/dhcp
 go 1.20
 
 require (
+	github.com/davecgh/go-spew v1.1.0
 	github.com/google/go-cmp v0.5.9
 	github.com/hugelgupf/socketpair v0.0.0-20190730060125-05d35a94e714
 	github.com/jsimonetti/rtnetlink v1.3.5
@@ -15,7 +16,6 @@ require (
 )
 
 require (
-	github.com/davecgh/go-spew v1.1.0 // indirect
 	github.com/josharian/native v1.1.0 // indirect
 	github.com/mdlayher/socket v0.4.1 // indirect
 	github.com/pierrec/lz4/v4 v4.1.14 // indirect

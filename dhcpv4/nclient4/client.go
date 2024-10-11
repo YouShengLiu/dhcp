@@ -2,6 +2,7 @@
 // Use of this source code is governed by a BSD-style
 // license that can be found in the LICENSE file.
 
+//go:build go1.12
 // +build go1.12
 
 // Package nclient4 is a small, minimum-functionality client for DHCPv4.
@@ -22,6 +23,7 @@ import (
 	"sync/atomic"
 	"time"
 
+	"github.com/davecgh/go-spew/spew"
 	"github.com/insomniacslk/dhcp/dhcpv4"
 )
 
@@ -615,6 +617,7 @@ func (c *Client) SendAndRead(ctx context.Context, dest *net.UDPAddr, p *dhcpv4.D
 			return err
 		}
 		c.logger.PrintMessage("sent message", p)
+		fmt.Printf("Discover:\n%v", spew.Sdump(p))
 		defer rem()
 
 		for {
@@ -629,6 +632,9 @@ func (c *Client) SendAndRead(ctx context.Context, dest *net.UDPAddr, p *dhcpv4.D
 				return ctx.Err()
 
 			case packet := <-ch:
+				fmt.Printf("Match:\n%v", spew.Sdump(match))
+				fmt.Printf("Packet:\n%v", spew.Sdump(packet))
+
 				if match == nil || match(packet) {
 					c.logger.PrintMessage("received message", packet)
 					response = packet
