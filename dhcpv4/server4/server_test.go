@@ -1,3 +1,4 @@
+//go:build go1.12
 // +build go1.12
 
 package server4
@@ -8,9 +9,9 @@ import (
 	"net"
 	"testing"
 
-	"github.com/insomniacslk/dhcp/dhcpv4"
-	"github.com/insomniacslk/dhcp/dhcpv4/nclient4"
-	"github.com/insomniacslk/dhcp/interfaces"
+	"github.com/YouShengLiu/dhcp/dhcpv4"
+	"github.com/YouShengLiu/dhcp/dhcpv4/nclient4"
+	"github.com/YouShengLiu/dhcp/interfaces"
 	"github.com/stretchr/testify/require"
 )
 

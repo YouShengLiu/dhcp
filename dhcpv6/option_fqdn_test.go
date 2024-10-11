@@ -5,9 +5,9 @@ import (
 	"fmt"
 	"testing"
 
+	"github.com/YouShengLiu/dhcp/rfc1035label"
 	"github.com/google/go-cmp/cmp"
 	"github.com/google/go-cmp/cmp/cmpopts"
-	"github.com/insomniacslk/dhcp/rfc1035label"
 	"github.com/stretchr/testify/require"
 	"github.com/u-root/uio/uio"
 )
