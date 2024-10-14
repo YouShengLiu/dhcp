@@ -285,6 +285,7 @@ func (c *Client) receiveLoop() {
 		// server is spec-compliant for the HWAddr field.
 		if c.ifaceHWAddr != nil && !bytes.Equal(c.ifaceHWAddr, msg.ClientHWAddr) {
 			// Not for us.
+			fmt.Printf("(iface HW, msg HW) = (%s, %s)\n", c.ifaceHWAddr, msg.ClientHWAddr)
 			continue
 		}
 
@@ -618,6 +619,7 @@ func (c *Client) SendAndRead(ctx context.Context, dest *net.UDPAddr, p *dhcpv4.D
 		}
 		c.logger.PrintMessage("sent message", p)
 		fmt.Printf("Discover:\n%v", spew.Sdump(p))
+		fmt.Printf("Discover:\n%v", spew.Sdump(p.ToBytes()))
 		defer rem()
 
 		for {
